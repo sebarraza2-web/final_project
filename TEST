@@ -1,0 +1,31 @@
+#include "msp.h"
+int main(void){
+ WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD; // Stop watchdog timer
+
+ /* Configure GPIO */
+ /* RGB LEDs at P2.0, P2.1, and P2.2, respectively */
+ P4->DIR |= 0x7F; // All set as outputs
+ P4->OUT &= ~0x7F;
+
+ /* Switch S1 */
+ P3->DIR &= ~BIT0; // Switch 1 at P1.1 set for input direction
+
+ /* Switch S2 */
+ P3->DIR &= ~BIT2;
+
+ P2->OUT &= ~BIT2;
+ while (1) {
+
+ if (P3->IN & BIT0){
+ P4->OUT &=~BIT0;
+ }else {
+ P4->OUT |= BIT0; // Turn on LED if switch is pressed
+ }
+
+ if(P3->IN & BIT2)
+ P4->OUT &= ~BIT1;
+ else
+ P4->OUT |= BIT1;
+ P4->OUT &= ~BIT1;
+ }
+}
