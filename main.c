@@ -1,7 +1,6 @@
 #include "msp.h"
-#include "lcdLib_432.h"
+#include <lcdLib.h>
 #include "keypad.h"
-#include "lcdLib_432.h"
 
 char buffer[1];
 
@@ -32,6 +31,7 @@ void transmit(void){
 void main(void){
     WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;
     //uart_init();
+    keypad_init();
     lcdInit();
     lcdClear();
     char key;
@@ -44,7 +44,15 @@ void main(void){
         case '3': buffer[0] = '3'; break;
         case '4': buffer[0] = '4'; break;
         case '5': buffer[0] = '5'; break;
-        default: buffer[0] = ' ';
+        case '6': buffer[0] = '6'; break;
+        case '7': buffer[0] = '7'; break;
+        case '8': buffer[0] = '8'; break;
+        case '9': buffer[0] = '9'; break;
+        case '0': buffer[0] = '0'; break;
+        case 'A': buffer[0] = 'A'; break;
+        case 'B': buffer[0] = 'B'; break;
+        case 'C': buffer[0] = 'C'; break;
+        case 'D': buffer[0] = 'D'; break;
         }
         lcdSetText("Hello", 0, 0);
         lcdSetText(buffer, 0, 1);
