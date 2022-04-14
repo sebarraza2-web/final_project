@@ -1,5 +1,5 @@
 void PWM_Init(void){
-       P2->DIR |= BIT4; // P2.4 set TA0.1
-       P2->SEL0 |= BIT4;
-       P2->SEL1 &= ~(BIT4);
+       P6->DIR |= BIT7; // P6.7 set TA2.4
+       P6->SEL0 |= BIT7;
+       P6->SEL1 &= ~(BIT7);
 }
