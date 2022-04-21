@@ -38,9 +38,9 @@ char keypad_get_key()
     {
         /* drive column i high */
         COLS -> OUT &= ~(C1 | C2 | C3| C4);
-        COLS -> OUT |= (BIT0 << i);
+        COLS -> OUT |= (BIT4 << i);
         if(i == 3){
-            COLS -> OUT |= BIT4;
+            COLS -> OUT |= BIT0;
         }
         __delay_cycles(25);
 
