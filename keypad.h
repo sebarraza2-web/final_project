@@ -3,17 +3,17 @@
 
 /* define pin values corresponding to keypad */
 #define ROWS P2
-#define COLS P5
+#define COLS P6
 
 #define R1 BIT4
 #define R2 BIT5
 #define R3 BIT6
 #define R4 BIT7
 
-#define C1 BIT0
-#define C2 BIT1
-#define C3 BIT2
-#define C4 BIT4
+#define C1 BIT4
+#define C2 BIT5
+#define C3 BIT6
+#define C4 BIT0
 
 /* function prototypes */
 void keypad_init();
