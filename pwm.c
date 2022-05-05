@@ -12,7 +12,6 @@
 void PWM_Init(void){
        P5->DIR |= BIT7; // P5.7 set TA2.2
        P5->SEL0 |= BIT7;
-       P5->SEL1 &= ~(BIT7);
 }
 
 
