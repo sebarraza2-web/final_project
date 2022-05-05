@@ -8,18 +8,11 @@
  * To be run before using the keypad, initializes the keypad for use */
 void keypad_init()
 {
-    /* set the pins as simple IO */
-    COLS -> SEL0 &= ~(C1 | C2 | C3| C4);
-    COLS -> SEL1 &= ~(C1 | C2 | C3| C4);
-    ROWS -> SEL0 &= ~(R1 | R2 | R3 | R4);
-    ROWS -> SEL1 &= ~(R1 | R2 | R3 | R4);
 
     /* set column bits to be outputs */
     COLS -> DIR |= (C1 | C2 | C3| C4);
-    COLS -> OUT &= ~(C1 | C2 | C3| C4);
 
     /* set row bits to be inputs, with a pull-up resistor */
-    ROWS -> DIR &= ~(R1 | R2 | R3 | R4);
     ROWS -> REN |= (R1 | R2 | R3 | R4);
     ROWS -> OUT &= ~(R1 | R2 | R3 | R4);
 }
