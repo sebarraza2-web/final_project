@@ -17,7 +17,6 @@
 #include "string.h"
 #include "ADC.h"
 #include "pwm.h"
-#include "stdio.h"
 
 char buffer[1];                             
 char welcome[] = "PLACE YOUR BETS \r"; // Strings that will be displayed on the screen via UART
